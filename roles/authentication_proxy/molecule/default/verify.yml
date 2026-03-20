@@ -17,7 +17,7 @@
           - not _service_enabled.changed
         fail_msg: The DUO authentication proxy is not enabled.
         success_msg: The DUO authentication proxy is enabled.
-    
+
     - name: Check if DUO authentication proxy is running
       check_mode: true
       become: true
@@ -32,7 +32,7 @@
           - not _service_running.changed
         fail_msg: The DUO authentication proxy is not running.
         success_msg: The DUO authentication proxy is running.
-    
+
     - name: Check log directory config
       check_mode: true
       become: true

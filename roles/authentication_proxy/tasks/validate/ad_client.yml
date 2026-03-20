@@ -32,7 +32,8 @@
         that:
           - _duoap_ssl_ca_certs_file.stat.isreg or
             _duoap_ssl_ca_certs_file.stat.islnk
-        fail_msg: "The 'ssl_ca_certs_file' variable must be an existing file. Value: {{ _duoap_ad_client.ssl_ca_certs_file }}"
+        fail_msg: >-
+          The 'ssl_ca_certs_file' variable must be an existing file. Value: {{ _duoap_ad_client.ssl_ca_certs_file }}
         success_msg: "The 'ssl_ca_certs_file' variable is valid."
 
 - name: Validate LDAP port

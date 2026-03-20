@@ -14,7 +14,9 @@
     that:
       - not _duoap_symlink_status.stat.exists or
         _duoap_symlink_status.stat.islnk
-    fail_msg: "The path {{ duoap_install_path }} is not a symlink and already exists.  Please resolve this before running this role."
+    fail_msg: >-
+      The path {{ duoap_install_path }} is not a symlink and already exists.
+      Please resolve this before running this role.
     success_msg: "The path {{ duoap_install_path }} is a symlink or does not exist."
 
 - name: If symlink does not exist, signal that install is needed and download DUO tarball

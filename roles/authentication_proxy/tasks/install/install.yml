@@ -25,10 +25,15 @@
 
 - name: Run Duo Authentication Proxy install script
   become: true
-  ansible.builtin.command: |
-    {{ duoap_temp_path }}/{{ _duoap_unarchive.files[0] }}duoauthproxy-build/install --install-dir {{ duoap_install_path }}-{{ _duoap_target_version }} --service-user {{ duoap_user }} --log-group {{ duoap_group }} --create-init-script yes --enable-selinux={{ _duoap_configure_selinux | ternary('yes', 'no') }}
+  ansible.builtin.command: >-
+    {{ duoap_temp_path }}/{{ _duoap_unarchive.files[0] }}duoauthproxy-build/install
+    --install-dir {{ duoap_install_path }}-{{ _duoap_target_version }}
+    --service-user {{ duoap_user }}
+    --log-group {{ duoap_group }}
+    --create-init-script yes
+    --enable-selinux={{ _duoap_configure_selinux | ternary('yes', 'no') }}
   changed_when: true
-  
+
 - name: Create Duo systemd service
   become: true
   ansible.builtin.template:

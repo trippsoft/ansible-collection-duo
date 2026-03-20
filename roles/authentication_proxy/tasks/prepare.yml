@@ -10,7 +10,7 @@
     - _duoap_configure_selinux
   become: true
   ansible.builtin.package:
-    name: "{{ _duoap_selinux_packages }}" 
+    name: "{{ _duoap_selinux_packages }}"
     state: present
 
 - name: Ensure DUO group exists

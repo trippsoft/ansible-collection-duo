@@ -61,7 +61,8 @@
   ansible.builtin.assert:
     that:
       - _duoap_ldap_auto_server.api_timeout | int >= 0
-    fail_msg: "The 'api_timeout' variable must be greater than or equal to 0. Value: {{ _duoap_ldap_auto_server.api_timeout }}"
+    fail_msg: >-
+      The 'api_timeout' variable must be greater than or equal to 0. Value: {{ _duoap_ldap_auto_server.api_timeout }}
     success_msg: "The 'api_timeout' variable is valid."
 
 - name: Validate LDAP network timeout
@@ -70,7 +71,9 @@
   ansible.builtin.assert:
     that:
       - _duoap_ldap_auto_server.network_timeout | int >= 0
-    fail_msg: "The 'network_timeout' variable must be greater than or equal to 0. Value: {{ _duoap_ldap_auto_server.network_timeout }}"
+    fail_msg: >-
+      The 'network_timeout' variable must be greater than or equal to 0.
+      Value: {{ _duoap_ldap_auto_server.network_timeout }}
     success_msg: "The 'network_timeout' variable is valid."
 
 - name: Validate LDAP idle timeout
@@ -79,7 +82,8 @@
   ansible.builtin.assert:
     that:
       - _duoap_ldap_auto_server.idle_timeout | int >= 0
-    fail_msg: "The 'idle_timeout' variable must be greater than or equal to 0. Value: {{ _duoap_ldap_auto_server.idle_timeout }}"
+    fail_msg: >-
+      The 'idle_timeout' variable must be greater than or equal to 0. Value: {{ _duoap_ldap_auto_server.idle_timeout }}
     success_msg: "The 'idle_timeout' variable is valid."
 
 - name: Validate LDAP SSL port
@@ -89,7 +93,8 @@
     that:
       - _duoap_ldap_auto_server.ssl_port | int >= 0
       - _duoap_ldap_auto_server.ssl_port | int <= 65535
-    fail_msg: "The 'ssl_port' variable must be an integer between 0 and 65535. Value: {{ _duoap_ldap_auto_server.ssl_port }}"
+    fail_msg: >-
+      The 'ssl_port' variable must be an integer between 0 and 65535. Value: {{ _duoap_ldap_auto_server.ssl_port }}
     success_msg: "The 'ssl_port' variable is valid."
 
 - name: Validate LDAP SSL key file
@@ -106,7 +111,8 @@
         that:
           - _duoap_ssl_key_file.stat.isreg or
             _duoap_ssl_key_file.stat.islnk
-        fail_msg: "The 'ssl_key_path' variable must be an existing file. Value: {{ _duoap_ldap_auto_server.ssl_key_path }}"
+        fail_msg: >-
+          The 'ssl_key_path' variable must be an existing file. Value: {{ _duoap_ldap_auto_server.ssl_key_path }}
         success_msg: "The 'ssl_key_path' variable is valid."
 
 - name: Validate LDAP SSL certificate file
@@ -117,13 +123,14 @@
       ansible.builtin.stat:
         path: "{{ _duoap_ldap_auto_server.ssl_cert_path }}"
       register: _duoap_ssl_cert_file
-    
+
     - name: Validate LDAP SSL certificate file
       ansible.builtin.assert:
         that:
           - _duoap_ssl_cert_file.stat.isreg or
             _duoap_ssl_cert_file.stat.islnk
-        fail_msg: "The 'ssl_cert_path' variable must be an existing file. Value: {{ _duoap_ldap_auto_server.ssl_cert_path }}"
+        fail_msg: >-
+          The 'ssl_cert_path' variable must be an existing file. Value: {{ _duoap_ldap_auto_server.ssl_cert_path }}
         success_msg: "The 'ssl_cert_path' variable is valid."
 
 - name: Validate LDAP password length delimiter
@@ -132,5 +139,7 @@
   ansible.builtin.assert:
     that:
       - _duoap_ldap_auto_server.password_length_delimiter | int >= 0
-    fail_msg: "The 'password_length_delimiter' variable must be greater than or equal to 0. Value: {{ _duoap_ldap_auto_server.password_length_delimiter }}"
+    fail_msg: >-
+      The 'password_length_delimiter' variable must be greater than or equal to 0.
+      Value: {{ _duoap_ldap_auto_server.password_length_delimiter }}
     success_msg: "The 'password_length_delimiter' variable is valid."

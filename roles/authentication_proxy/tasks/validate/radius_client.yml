@@ -34,7 +34,9 @@
   ansible.builtin.assert:
     that:
       - _duoap_radius_client.retry_wait_time | int >= 1
-    fail_msg: "The 'retry_wait_time' variable must be greater than or equal to 1. Value: {{ _duoap_radius_client.retry_wait_time }}"
+    fail_msg: >-
+      The 'retry_wait_time' variable must be greater than or equal to 1.
+      Value: {{ _duoap_radius_client.retry_wait_time }}
     success_msg: "The 'retry_wait_time' variable is valid."
 
 - name: Validate RADIUS NAS IP

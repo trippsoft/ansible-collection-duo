@@ -90,7 +90,9 @@
   ansible.builtin.assert:
     that:
       - _duoap_radius_auto_server.password_length_delimiter | int >= 0
-    fail_msg: "The 'password_length_delimiter' variable must be greater than or equal to 0. Value: {{ _duoap_radius_auto_server.password_length_delimiter }}"
+    fail_msg: >-
+      The 'password_length_delimiter' variable must be greater than or equal to 0.
+      Value: {{ _duoap_radius_auto_server.password_length_delimiter }}
     success_msg: "The 'password_length_delimiter' variable is valid."
 
 - name: Validate RADIUS API timeout
@@ -99,7 +101,8 @@
   ansible.builtin.assert:
     that:
       - _duoap_radius_auto_server.api_timeout | int >= 0
-    fail_msg: "The 'api_timeout' variable must be greater than or equal to 0. Value: {{ _duoap_radius_auto_server.api_timeout }}"
+    fail_msg: >-
+      The 'api_timeout' variable must be greater than or equal to 0. Value: {{ _duoap_radius_auto_server.api_timeout }}
     success_msg: "The 'api_timeout' variable is valid."
 
 - name: Validate RADIUS port
