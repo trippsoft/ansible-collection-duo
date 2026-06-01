@@ -19,7 +19,26 @@ jobs:
     name: Generate authentication_proxy role documentation
     permissions:
       contents: write
-    uses: trippsoft/github-actions/.github/workflows/role-docs.yml@main
-    with:
-      working_directory: 'trippsc2.duo'
-      role_name: 'authentication_proxy'
+    runs-on:
+      - self-hosted
+      - linux
+      - ansible
+      - x64
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          path: trippsc2.duo
+          ref: main
+      - name: Generate authentication_proxy role documentation
+        working-directory: 'trippsc2.duo'
+        run: |
+          source ~/venv/ansible-2.16/bin/activate
+          cd ./roles/authentication_proxy
+          aar-doc . markdown
+          git config user.name "GitHub Actions"
+          git config user.email "github-actions@github.com"
+          git add README.md || /bin/true
+          git commit -m "Update authentication_proxy role documentation." || /bin/true
+          git push origin main
+          deactivate
