@@ -1,6 +1,6 @@
 ---
 _duoap_os_is_supported: true
-_duoap_os_is_tested: false
+_duoap_os_is_tested: true
 
 _duoap_default_configure_selinux: false
 _duoap_default_firewall_type: firewalld

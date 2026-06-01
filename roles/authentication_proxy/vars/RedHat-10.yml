@@ -1,0 +1,22 @@
+---
+_duoap_os_is_supported: true
+_duoap_os_is_tested: true
+
+_duoap_default_configure_selinux: true
+_duoap_default_firewall_type: firewalld
+
+_duoap_default_http_ca_certs_file: /etc/pki/tls/certs/ca-bundle.crt
+
+_duoap_packages:
+  - gcc
+  - make
+  - libffi-devel
+  - perl
+  - zlib-devel
+  - diffutils
+  - python3-pip
+  - tar
+
+_duoap_selinux_packages:
+  - selinux-policy-devel
+  - chkconfig

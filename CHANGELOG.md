@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.0] - 2026-06-02
+
+### Role - authentication_proxy
+
+- Added support for Debian 13.
+- Added support for Enterprise Linux 10.
+- Added support for Ubuntu 26.04.
+
 ## [1.0.15] - 2025-06-10
 
 ### Collection
