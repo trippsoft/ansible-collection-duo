@@ -9,9 +9,9 @@ This role installs and configures a DUO Authentication Proxy on a Linux machine.
 
 | Platform | Versions |
 | -------- | -------- |
-| Debian | <ul><li>bookworm</li></ul> |
-| EL | <ul><li>9</li><li>8</li></ul> |
-| Ubuntu | <ul><li>noble</li><li>jammy</li></ul> |
+| Debian | <ul><li>trixie</li></ul> |
+| EL | <ul><li>10</li><li>9</li><li>8</li></ul> |
+| Ubuntu | <ul><li>resolute</li><li>noble</li><li>jammy</li></ul> |
 
 ## Dependencies
 
