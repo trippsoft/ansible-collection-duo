@@ -1,6 +1,8 @@
 ---
 dependency:
   name: galaxy
+  options:
+    requirements-file: ${MOLECULE_SCENARIO_DIRECTORY}/requirements-${MOLECULE_ANSIBLE_VERSION:-2.16}.yml
 driver:
   name: vagrant
   provider:
@@ -9,7 +11,7 @@ driver:
   parallel: true
 platforms:
   - name: linux
-    box: jtarpley/${MOLECULE_BOX:-rocky9_cis}
+    box: trippsc2/${MOLECULE_BOX:-rocky9_cis}
     memory: 2048
     cpus: 2
     provider_options:
@@ -17,7 +19,7 @@ platforms:
     groups:
       - subjects
   - name: dc
-    box: jtarpley/${MOLECULE_WIN_BOX:-w2022_cis}
+    box: trippsc2/${MOLECULE_WIN_BOX:-w2022_cis}
     memory: 2048
     cpus: 2
     provider_options:
@@ -35,7 +37,7 @@ provisioner:
         duoap_api_host: api-26a75eeb.duosecurity.com
         duoap_temp_path: /home/vagrant/duoap
         duoap_cert_path: >-
-          {{ '/etc/pki/ca-trust/source/anchors' if ansible_os_family == 'RedHat' else '/usr/share/ca-certificates' }}
+          {{ '/etc/pki/ca-trust/source/anchors' if ansible_facts.os_family == 'RedHat' else '/usr/share/ca-certificates' }}
         duoap_ad_clients:
           - comment: "Active Directory {{ ad_domain_fqdn }}"
             hosts:

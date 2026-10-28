@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.1] - 2026-10-28
+
+### Role - authentication_proxy
+
+- Changed fact gathering to use `ansible_facts` instead of direct variables.
+
 ## [1.1.0] - 2026-06-02
 
 ### Role - authentication_proxy
