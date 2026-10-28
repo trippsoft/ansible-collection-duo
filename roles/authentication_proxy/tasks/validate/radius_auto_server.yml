@@ -9,9 +9,9 @@
 - name: Validate RADIUS client ID
   ansible.builtin.assert:
     that:
-      - _duoap_radius_auto_server.client | regex_search('^ad_client[0-9*]$') or
-        _duoap_radius_auto_server.client | regex_search('^radius_client[0-9*]$') or
-        _duoap_radius_auto_server.client | regex_search('^duo_only_client$')
+      - _duoap_radius_auto_server.client is search('^ad_client[0-9*]$') or
+        _duoap_radius_auto_server.client is search('^radius_client[0-9*]$') or
+        _duoap_radius_auto_server.client is search('^duo_only_client$')
     fail_msg: "The 'client' variable must be a valid RADIUS client."
     success_msg: "The 'client' variable has valid syntax."
 
@@ -25,7 +25,7 @@
 
 - name: Validate RADIUS client
   when:
-    - _duoap_radius_auto_server.client | regex_search('^ad_client[0-9*]$')
+    - _duoap_radius_auto_server.client is search('^ad_client[0-9*]$')
   block:
     - name: Validate RADIUS client
       when:
@@ -47,7 +47,7 @@
 
 - name: Validate RADIUS client
   when:
-    - _duoap_radius_auto_server.client | regex_search('^radius_client[0-9*]$')
+    - _duoap_radius_auto_server.client is search('^radius_client[0-9*]$')
   block:
     - name: Validate RADIUS client
       when:
@@ -69,7 +69,7 @@
 
 - name: Validate RADIUS client
   when:
-    - _duoap_radius_auto_server.client | regex_search('^duo_only_client$')
+    - _duoap_radius_auto_server.client is search('^duo_only_client$')
   ansible.builtin.assert:
     that:
       - duoap_duo_only_client_enabled | default(false)

@@ -9,7 +9,7 @@
 - name: Validate LDAP client ID
   ansible.builtin.assert:
     that:
-      - _duoap_ldap_auto_server.client | regex_search('^ad_client[0-9]*$')
+      - _duoap_ldap_auto_server.client is search('^ad_client[0-9]*$')
     fail_msg: "The 'client' variable must be a valid AD client."
     success_msg: "The 'client' variable has valid syntax."
 

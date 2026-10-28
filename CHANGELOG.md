@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 ### Role - authentication_proxy
 
 - Changed fact gathering to use `ansible_facts` instead of direct variables.
+- Fixed `regex_search` conditionals to use `is search` instead.
 
 ## [1.1.0] - 2026-06-02
 

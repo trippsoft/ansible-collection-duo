@@ -57,7 +57,7 @@
     - duoap_version is defined
   ansible.builtin.assert:
     that:
-      - duoap_version | regex_search('^[0-9]+\\.[0-9]+\\.[0-9]+$')
+      - duoap_version is search('^[0-9]+\\.[0-9]+\\.[0-9]+$')
     fail_msg: "DUO Authentication Proxy version is not valid. Value: {{ duoap_version }}"
     success_msg: DUO Authentication Proxy version is valid.
 
