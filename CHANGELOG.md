@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
 
 - Changed fact gathering to use `ansible_facts` instead of direct variables.
 - Fixed `regex_search` conditionals to use `is search` instead.
+- Added `zlib1g-dev` to the list of required packages for various Ubuntu and Debian versions.
 
 ## [1.1.0] - 2026-06-02
 

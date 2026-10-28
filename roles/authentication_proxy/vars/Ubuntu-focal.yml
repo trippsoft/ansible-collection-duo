@@ -13,6 +13,7 @@ _duoap_packages:
   - libffi-dev
   - python3-pip
   - tar
+  - zlib1g-dev
 
 _duoap_selinux_packages:
   - selinux-policy-devel
